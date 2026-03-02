@@ -5,19 +5,19 @@ import './About.css'
 import { GiMusicalScore } from "react-icons/gi";
 import { RiKakaoTalkFill } from "react-icons/ri";
 import { FaInstagram } from "react-icons/fa";
-import { IoIosAlert } from "react-icons/io";
+// import { IoIosAlert } from "react-icons/io";
 
 export default function About() {
-  const GongsaAlert = () => (
-    <div className="alertbox">
-      <IoIosAlert />
-      <p>
-        <b>[공지]</b> 학생회관 리모델링 공사로 인해 2026년 3월 말까지 기존 동아리방 출입이 제한됩니다.
-        공사 기간동안 피아노는 <b>서울대학교 67동(NH두레문예관) 105호(다향만당)</b>에서 이용하실 수 있습니다.
-        사용 가능한 시간 및 예약 방법은 카카오톡 공지를 참조해 주세요.
-      </p>
-    </div>
-  );
+  // const GongsaAlert = () => (
+  //   <div className="alertbox">
+  //     <IoIosAlert />
+  //     <p>
+  //       <b>[공지]</b> 학생회관 리모델링 공사로 인해 2026년 3월 말까지 기존 동아리방 출입이 제한됩니다.
+  //       공사 기간동안 피아노는 <b>서울대학교 67동(NH두레문예관) 105호(다향만당)</b>에서 이용하실 수 있습니다.
+  //       사용 가능한 시간 및 예약 방법은 카카오톡 공지를 참조해 주세요.
+  //     </p>
+  //   </div>
+  // );
   
   return (
     <>
@@ -48,7 +48,7 @@ export default function About() {
       
       {/* 2026년 3월까지 공사 관련 공지인데 끝나면 지워 주세요.
           (251225 김연준) */}
-      <GongsaAlert />
+      {/* <GongsaAlert /> */}
 
       <div className="linkbox">
       <a className="linkbutton" href="https://snupia.kr/react-pages/clubroom" target="_blank" rel="noopener noreferrer">
