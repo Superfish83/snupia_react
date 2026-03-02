@@ -8,6 +8,7 @@ import About from './pages/About.tsx'
 import Clubroom from './pages/Clubroom/Clubroom.tsx'
 import Posters from './pages/Posters.tsx'
 import WebGames from './pages/WebGames.tsx'
+import GamesMBTI from './pages/games/mbti.tsx'
 
 
 // main App component (routing 담당)
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/clubroom" element={<Clubroom />} />
         <Route path="/posters"  element={<Posters />} />
         <Route path="/webgames" element={<WebGames />} />
+        <Route path="/webgames/mbti" element={<GamesMBTI />} />
 
         {/* 추가 예정 */}
       </Routes>

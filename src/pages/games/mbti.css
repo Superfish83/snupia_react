@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+/* --- Layout & Flexbox --- */
+.min-h-screen { min-height: 100vh; }
+.w-full { width: 100%; }
+.max-w-lg { max-width: 32rem; /* 512px */ }
+.h-2 { height: 0.5rem; }
+.h-full { height: 100%; }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-1 { flex: 1 1 0%; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-6 { gap: 1.5rem; }
+
+/* --- Spacing (Padding & Margin) --- */
+.m-0 { margin: 0; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mt-6 { margin-top: 1.5rem; }
+
+.p-3 { padding: 0.75rem; }
+.p-4 { padding: 1rem; }
+.p-8 { padding: 2rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.pt-4 { padding-top: 1rem; }
+
+/* --- Colors (Background, Text, Border) --- */
+.bg-black { background-color: #000000; }
+.bg-gray-900 { background-color: #111827; }
+.bg-gray-800 { background-color: #1f2937; }
+.bg-gray-700 { background-color: #374151; }
+
+.bg-blue-400 { background-color: #60a5fa; }
+.bg-blue-600 { background-color: #2563eb; }
+.bg-blue-900 { background-color: #1e3a8a; }
+
+.text-white { color: #ffffff; }
+.text-gray-300 { color: #d1d5db; }
+.text-gray-400 { color: #9ca3af; }
+.text-blue-400 { color: #60a5fa; }
+
+.border { border: 1px solid transparent; }
+.border-gray-600 { border-color: #4b5563; }
+
+/* --- Typography --- */
+.text-center { text-align: center; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+.text-6xl { font-size: 3.75rem; line-height: 1; }
+
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+/* --- Borders & Effects --- */
+.rounded { border-radius: 0.25rem; }
+.rounded-lg { border-radius: 0.5rem; }
+.shadow-lg { 
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3); 
+}
+.opacity-50 { opacity: 0.5; }
+.overflow-hidden { overflow: hidden; }
+
+/* --- Object & Image --- */
+.object-cover { object-fit: cover; }
+
+/* --- Interactions & Animations --- */
+.cursor-pointer { cursor: pointer; }
+.cursor-not-allowed { cursor: not-allowed; }
+
+.transition-all {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.transition-colors {
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+/* --- Hover States --- */
+.hover\:bg-gray-800:hover { background-color: #1f2937; }
+.hover\:bg-gray-600:hover { background-color: #4b5563; }
+.hover\:bg-blue-700:hover { background-color: #1d4ed8; }
+
+/* button 태그 기본 스타일 리셋 (브라우저 기본 스타일 방지) */
+button {
+  font-family: inherit;
+  font-size: 100%;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+button:disabled {
+  cursor: not-allowed;
+}
