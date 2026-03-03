@@ -1,14 +1,11 @@
-"use client";
+import AnswerBoard from "./components/answerBoard";
+import Score from "./components/score";
+import Timer from "./components/timer";
+import TutorialBoard from "./components/tutorialBoard";
+import useImages from "./hooks/useImages";
+import { useEffect, useState } from "react";
 
-import AnswerBoard from "@/components/sightread/answerBoard";
-import Score from "@/components/sightread/score";
-import Timer from "@/components/sightread/timer";
-import TutorialBoard from "@/components/sightread/tutorialBoard";
-import useImages from "@/hooks/useImages";
-import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
-
-const pitchname = [
+const pitchname: string[] = [
   "A",
   "B",
   "C",
@@ -22,7 +19,7 @@ const pitchname = [
   "Gb",
   "Ab",
 ];
-const notename = [
+const notename: string[] = [
   "라",
   "시",
   "도",
@@ -36,51 +33,76 @@ const notename = [
   "파#",
   "솔#",
 ];
-const octavename = ["2", "3", "4", "5", "6"];
+const octavename: string[] = ["2", "3", "4", "5", "6"];
 
-export default function Game() {
-  const [gameStatus, setGameStatus] = useState(0);
+type QuizIdx = {
+  dif: number; // difficulty
+  idx: number; // index
+};
+
+export default function GamesSightreadGame() {
+  const [gameStatus, setGameStatus] = useState<number>(0);
   // 0: 게임 진행 중
   // 1: 오답
   // 2: 타임 오버
-  const [correctCnt, setCorrectCnt] = useState(0);
-  const [keyHitTime, setKeyHitTime] = useState(null);
+  const [correctCnt, setCorrectCnt] = useState<number>(0);
+  const [keyHitTime, setKeyHitTime] = useState<number | null>(null);
 
-  const [quizList, setQuizList] = useState([]);
-  const [quizIdx, setQuizIdx] = useState({
+  const [quizList, setQuizList] = useState<string[][]>([]);
+  const [quizIdx, setQuizIdx] = useState<QuizIdx>({
     dif: 0, // difficulty
     idx: 0, // index
   });
-  const [answer, setAnswer] = useState(-1);
-  const [lastAnswer, setLastAnswer] = useState(-1);
-  const [lastCorrect, setLastCorrect] = useState(-1);
+  const [answer, setAnswer] = useState<number>(-1);
+  const [lastAnswer, setLastAnswer] = useState<number>(-1);
+  const [lastCorrect, setLastCorrect] = useState<number>(-1);
 
   const images = useImages("gameResources/quizpic");
 
-  const DEBUGMODE = false;
+  const DEBUGMODE: boolean = false;
 
-  function initGame() {
+  function initGame(): void {
     setLastAnswer(-1);
     setCorrectCnt(0);
     setGameStatus(0);
-    setQuizList(images?.images);
+    setQuizList(images?.images as string[][]);
     setQuizIdx({
       dif: 0,
-      idx: Math.floor(Math.random() * images?.images[0]?.length),
+      idx: Math.floor(Math.random() * ((images?.images as string[][])?.[0]?.length ?? 0)),
     });
   }
 
+  
+  function getPitch(key: number, verbose?: boolean): string {
+    if (verbose) {
+      return `${key} (${pitchname[key % 12]}${
+        octavename[Math.floor(key / 12)]
+      },${" "}
+        ${notename[key % 12]})`;
+    } else {
+      return `${pitchname[key % 12]}${octavename[Math.floor(key / 12)]}`;
+    }
+  }
+
+  function getKeyFromQuizIdx(): number {
+    //console.log(quizList[quizIdx.dif]);
+    const t: string = quizList[quizIdx.dif][quizIdx.idx].slice(1);
+    return parseInt(t.slice(t.indexOf("/") + 11, [t.indexOf("_")] as unknown as number));
+  }
+
+
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (images.loading == false && quizList?.length == 0) initGame();
   }, [images]);
 
-  function updateQuizIdx() {
-    let newDif; // new Difficulty
+  function updateQuizIdx(): void {
+    let newDif: number; // new Difficulty
     if (correctCnt < 7) newDif = 0;
     else if (correctCnt < 20) newDif = 1;
     else newDif = 2;
 
-    let newIdx = Math.floor(Math.random() * quizList[quizIdx.dif].length);
+    let newIdx: number = Math.floor(Math.random() * quizList[quizIdx.dif].length);
     if (newIdx == quizIdx.idx) {
       newIdx = (quizIdx.idx + 1) % quizList[quizIdx.dif].length;
     }
@@ -95,7 +117,7 @@ export default function Game() {
     if (answer == -1) return;
 
     // Play key sound
-    const tmp = getPitch(answer);
+    const tmp: string = getPitch(answer);
     const sound = new Audio(
       `/gameResources/piano-mp3/${
         (tmp[0] == "A" && tmp.length == 2) || tmp[0] == "B"
@@ -106,10 +128,11 @@ export default function Game() {
     sound.play();
 
     // Check answer
-    const correctAnswer = getKeyFromQuizIdx(quizIdx.idx);
+    const correctAnswer: number = getKeyFromQuizIdx();
 
     if (answer == correctAnswer) {
       //alert("정답!");
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCorrectCnt(correctCnt + 1);
     }
 
@@ -123,22 +146,6 @@ export default function Game() {
     setAnswer(-1);
   }, [answer]);
 
-  function getPitch(key, verbose) {
-    if (verbose) {
-      return `${key} (${pitchname[key % 12]}${
-        octavename[Math.floor(key / 12)]
-      },${" "}
-        ${notename[key % 12]})`;
-    } else {
-      return `${pitchname[key % 12]}${octavename[Math.floor(key / 12)]}`;
-    }
-  }
-  function getKeyFromQuizIdx() {
-    //console.log(quizList[quizIdx.dif]);
-    const t = quizList[quizIdx.dif][quizIdx.idx].slice(1);
-    return parseInt(t.slice(t.indexOf("/") + 11, [t.indexOf("_")]));
-  }
-
   const GameRunning = () => (
     <div className="w-full h-full flex flex-col">
       <section className="mx-auto mt-14 font-bold text-xl">
@@ -150,21 +157,21 @@ export default function Game() {
           <div className="flex items-center">
             <div className="w-36" />
             <div className="relative w-40 h-40 text-white">
-              {quizList[0]?.map((item, key) => (
+              {quizList[0]?.map((item: string, key: number) => (
                 <Score
                   key={key}
                   showsrc={quizList[quizIdx.dif][quizIdx.idx]}
                   imgsrc={item}
                 />
               ))}
-              {quizList[1]?.map((item, key) => (
+              {quizList[1]?.map((item: string, key: number) => (
                 <Score
                   key={key}
                   showsrc={quizList[quizIdx.dif][quizIdx.idx]}
                   imgsrc={item}
                 />
               ))}
-              {quizList[2]?.map((item, key) => (
+              {quizList[2]?.map((item: string, key: number) => (
                 <Score
                   key={key}
                   showsrc={quizList[quizIdx.dif][quizIdx.idx]}
@@ -232,9 +239,9 @@ export default function Game() {
         <div className="font-bold text-3xl text-green-200">
           맞힌 개수: {correctCnt}개
         </div>
-        <Link className="ml-10 systemBtn" href={"/games"}>
+        <a className="ml-10 systemBtn" href={"/webgames"}>
           게임 종료
-        </Link>
+        </a>
       </section>
     </div>
   );

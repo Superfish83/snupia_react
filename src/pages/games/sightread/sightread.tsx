@@ -1,3 +1,4 @@
+import "./sightread.css";
 
 export default function GamesSightread() {
   return (
@@ -5,7 +6,7 @@ export default function GamesSightread() {
       <h1>피아노 초견 스피드 게임</h1>
 
       <section className="mx-auto">
-        <a href="/games/sightread/tutorial" className="systemBtn">
+        <a href="/webgames/sightread/tutorial" className="systemBtn">
           게임 시작
         </a>
       </section>
