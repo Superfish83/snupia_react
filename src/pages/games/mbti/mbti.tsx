@@ -153,9 +153,14 @@ export default function MBTISurvey() {
             />
             <div className="text-6xl font-bold text-blue-400">{resultData[0]}</div>
             <div className="text-gray-300">{resultData[1]}</div>
-            <button onClick={resetForm} className="systemBtn mt-6 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition-colors">
-              다시하기
-            </button>
+            <div className="flex mt-6 gap-8">
+              <button onClick={resetForm} className="systemBtn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition-colors">
+                다시하기
+              </button>
+              <a href={'/webgames'} className="systemBtn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition-colors">
+                다른 게임 하기
+              </a>
+            </div>
           </div>
         </div>
       </div>

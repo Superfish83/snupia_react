@@ -1,8 +1,9 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './_Test.css'
+import '../common.css'
 
-import { TestComponent } from '../components/testComponent'
+import { TestComponent } from '../../components/testComponent'
 
 export default function Test() {
   

@@ -1,19 +1,32 @@
 import "./sightread.css";
 
+import Score from "./components/score";
+import TutorialBoard from "./components/tutorialBoard";
+
 export default function GamesSightread() {
   return (
     <div className="w-full h-full flex flex-col">
-      <h1>피아노 초견 스피드 게임</h1>
-
-      <section className="mx-auto">
-        <a href="/webgames/sightread/tutorial" className="systemBtn">
-          게임 시작
-        </a>
+      <section className="mx-auto mt-14 font-bold text-xl">
+        음표에 맞는 음을 누르세요!
       </section>
 
-      <section className="mx-auto mt-16 text-center">
-        <div className="my-2 text-lg">
-          PC/태블릿 등 가로로 넓은 화면에서 플레이해 주세요.
+      <section className="mx-auto my-4">
+        <div className="relative w-40 h-40">
+          <Score
+            imgsrc={"/gameResources/quizpic/1/26_1.jpg"}
+            showsrc={"/gameResources/quizpic/1/26_1.jpg"}
+          />
+        </div>
+      </section>
+
+      <section className="mx-auto my-1">
+        <TutorialBoard gamestart={26} />
+        {/* <div className="text-black">[DEBUG]</div> */}
+      </section>
+
+      <section className="mx-auto my-4">
+        <div className="font-bold text-xl">
+          초록색으로 표시된 가온 도(C4) 음을 클릭하면 게임이 시작됩니다!
         </div>
       </section>
     </div>

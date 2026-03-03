@@ -1,10 +1,10 @@
 import './WebGames.css';
 
 function GameButton({ name, link, imgsrc, desc }: { name: string, link: string, imgsrc: string, desc?: string }) {
-  return (<a href={link}>
-      <img src={imgsrc} alt="SNUPia logo" height={160} />
+  return (<a href={link} className='webgame-card'>
+      <img src={imgsrc} alt={name} className='games-img' />
       <div>
-        <br/> <h2>{name}</h2>
+        <h2>{name}</h2>
         <br/> {desc && <p>{desc}</p>}
       </div>
   </a>)
@@ -15,7 +15,9 @@ export default function WebGames() {
   
   return (
     <>
+      <br/>
       <h1>SNUPia 웹게임</h1>
+      <br/>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
         <GameButton name="피아노 초견 스피드 게임" desc="악보를 보고 알맞은 음을 빠르게 눌러보세요! 제한 시간 내에 최대한 많은 음을 맞혀야 합니다."
                     link="/webgames/sightread" imgsrc='/gameThumbs/1.jpg' />

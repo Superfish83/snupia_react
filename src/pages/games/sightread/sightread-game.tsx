@@ -1,39 +1,12 @@
+import "./sightread.css";
+
 import AnswerBoard from "./components/answerBoard";
 import Score from "./components/score";
 import Timer from "./components/timer";
 import TutorialBoard from "./components/tutorialBoard";
-import useImages from "./hooks/useImages";
 import { useEffect, useState } from "react";
 
-const pitchname: string[] = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "Bb",
-  "Db",
-  "Eb",
-  "Gb",
-  "Ab",
-];
-const notename: string[] = [
-  "라",
-  "시",
-  "도",
-  "레",
-  "미",
-  "파",
-  "솔",
-  "라#",
-  "도#",
-  "레#",
-  "파#",
-  "솔#",
-];
-const octavename: string[] = ["2", "3", "4", "5", "6"];
+import {images, pitchname, notename, octavename} from "./constants";
 
 type QuizIdx = {
   dif: number; // difficulty
@@ -57,21 +30,7 @@ export default function GamesSightreadGame() {
   const [lastAnswer, setLastAnswer] = useState<number>(-1);
   const [lastCorrect, setLastCorrect] = useState<number>(-1);
 
-  const images = useImages("gameResources/quizpic");
-
   const DEBUGMODE: boolean = false;
-
-  function initGame(): void {
-    setLastAnswer(-1);
-    setCorrectCnt(0);
-    setGameStatus(0);
-    setQuizList(images?.images as string[][]);
-    setQuizIdx({
-      dif: 0,
-      idx: Math.floor(Math.random() * ((images?.images as string[][])?.[0]?.length ?? 0)),
-    });
-  }
-
   
   function getPitch(key: number, verbose?: boolean): string {
     if (verbose) {
@@ -91,10 +50,18 @@ export default function GamesSightreadGame() {
   }
 
 
+  // reset states at initialization
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (images.loading == false && quizList?.length == 0) initGame();
-  }, [images]);
+    setLastAnswer(-1);
+    setCorrectCnt(0);
+    setGameStatus(0);
+    setQuizList(images as string[][]);
+    setQuizIdx({
+      dif: 0,
+      idx: Math.floor(Math.random() * ((images as string[][])?.[0]?.length ?? 0)),
+    });
+  }, []);
 
   function updateQuizIdx(): void {
     let newDif: number; // new Difficulty
@@ -180,7 +147,7 @@ export default function GamesSightreadGame() {
               ))}
             </div>
 
-            <div className="w-36 px-4 text-slate-300 text-center">
+            <div className="w-36 px-4 text-gray-700 text-center font-bold">
               난이도: {quizIdx.dif == 0 && "★"}
               {quizIdx.dif == 1 && "★★"}
               {quizIdx.dif == 2 && "★★★"}
@@ -222,7 +189,7 @@ export default function GamesSightreadGame() {
   const GameOver = () => (
     <div className="w-full h-full flex flex-col">
       <section className="mx-auto mt-12 font-bold text-xl text-center">
-        <div className="text-3xl text-red-300 font-bold">게임 오버!</div>
+        <div className="text-3xl text-red-500 font-bold">게임 오버!</div>
       </section>
       <section className="mx-auto my-4">
         <div className="relative w-40 h-40 text-white">
@@ -235,8 +202,8 @@ export default function GamesSightreadGame() {
       <section className="mx-auto my-1">
         <TutorialBoard wrong={getKeyFromQuizIdx()} />
       </section>
-      <section className="mx-auto mt-4 text-center flex items-center">
-        <div className="font-bold text-3xl text-green-200">
+      <section className="mx-auto mt-4 text-center flex items-center gap-8">
+        <div className="font-bold text-3xl text-green-600">
           맞힌 개수: {correctCnt}개
         </div>
         <a className="ml-10 systemBtn" href={"/webgames"}>

@@ -1,16 +1,14 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 
 // import pages
-import NotFound from './pages/_NotFound.tsx'
-import Test from './pages/_Test.tsx'
+import NotFound from './pages/test/_NotFound.tsx'
+import Test from './pages/test/_Test.tsx'
 
 import About from './pages/About.tsx'
 import Clubroom from './pages/Clubroom/Clubroom.tsx'
-import Posters from './pages/Posters.tsx'
 import WebGames from './pages/games/WebGames.tsx'
 import GamesMBTI from './pages/games/mbti/mbti.tsx'
 import GamesSightread from './pages/games/sightread/sightread.tsx'
-import GamesSightreadTutorial from './pages/games/sightread/sightread-tutorial.tsx'
 import GamesSightreadGame from './pages/games/sightread/sightread-game.tsx'
 
 // main App component (routing 담당)
@@ -23,11 +21,9 @@ export default function App() {
 
         <Route path="/about"    element={<About />} />
         <Route path="/clubroom" element={<Clubroom />} />
-        <Route path="/posters"  element={<Posters />} />
         <Route path="/webgames" element={<WebGames />} />
         <Route path="/webgames/mbti" element={<GamesMBTI />} />
         <Route path="/webgames/sightread" element={<GamesSightread />} />
-        <Route path="/webgames/sightread/tutorial" element={<GamesSightreadTutorial />} />
         <Route path="/webgames/sightread/game" element={<GamesSightreadGame />} />
 
         {/* 추가 예정 */}

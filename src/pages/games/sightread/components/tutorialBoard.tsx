@@ -23,9 +23,9 @@ export default function TutorialBoard({ gamestart, right, wrong }: {gamestart?: 
           left: `${x}px`,
         }
       : {
-          width: `${wkW}px`,
+          width: `${wkW-1.5}px`,
           height: `${wkH}px`,
-          left: `${x}px`,
+          left: `${x+0.75}px`,
         };
 
     if (id == gamestart)

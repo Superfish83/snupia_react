@@ -30,16 +30,16 @@ export default function Timer({ seconds, barSize, setGameStatus }:
       <div className="mx-4 font-bold">
         남은 시간: {Math.ceil(msLeft / 1000)}초
       </div>
-      <div className="flex bg-gray-800 rounded-lg">
+      <div className="flex bg-gray-300 rounded-lg">
         <div
-          className="bg-cyan-300 rounded-lg"
+          className="bg-cyan-500 rounded-lg"
           style={{
             width: `${barSize * (msLeft / (seconds * 1000))}px`,
             height: `14px`,
           }}
         />
         <div
-          className="bg-gray-800 rounded-lg"
+          className="bg-gray-300 rounded-lg"
           style={{
             width: `${barSize * (1 - msLeft / (seconds * 1000))}px`,
             height: `14px`,

@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/static-components */
 import AnswerEffect from "./answerEffect";
+import "../sightread.css";
 
 export default function AnswerBoard({ setAnswer, lastCorrect, lastAnswer, keyHitTime,}:
   {setAnswer: (answer: number) => void;
@@ -30,14 +31,14 @@ export default function AnswerBoard({ setAnswer, lastCorrect, lastAnswer, keyHit
           left: `${x}px`,
         }
       : {
-          width: `${wkW}px`,
+          width: `${wkW-1.5}px`,
           height: `${wkH}px`,
-          left: `${x}px`,
+          left: `${x+0.75}px`,
         };
     return (
       <>
         <button
-          className={`absolute border-slate-500 border ${
+          className={`absolute border-slate-500 ${
             isblack
               ? "bg-black hover:bg-gray-800"
               : "bg-white hover:bg-gray-200"
@@ -102,7 +103,7 @@ export default function AnswerBoard({ setAnswer, lastCorrect, lastAnswer, keyHit
   }
 
   return (
-    <div className="bg-slate-500 p-4">
+    <div className="bg-gray-600 p-4">
       <div className={`relative cursor-pointer`} style={boardStyle}>
         <OctaveBoard octave={4} />
         <OctaveBoard octave={3} />
