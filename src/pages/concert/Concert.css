@@ -115,12 +115,12 @@
 .map-button {
   border-radius: 8px;
   padding: 8px;
-  background-color: #debb7e;
-  transition: all 0.3s ease;
+  background-color: #9e7f4a;
+  transition: all 0.2s ease;
   color: inherit;
 }
 .map-button:hover {
-  background-color: #eacc99;
+  background-color: #c1a16b;
   animation: none;
 }
 

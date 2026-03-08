@@ -1,6 +1,6 @@
 import { FaMapLocationDot } from "react-icons/fa6";
 import { AnimatePresence, motion } from "framer-motion";
-import { type ReactNode } from "react";
+import { useLayoutEffect, type ReactNode } from "react";
 
 import Piece, { type PieceData } from "./Piece";
 import "./Concert.css";
@@ -18,6 +18,10 @@ interface FadeInProps {
 }
 
 export default function Concert35() {
+  useLayoutEffect(() => {
+    document.title = "SNUPia 제35회 정기연주회";
+  }, []);
+
   const FadeInDiv = ({ delay, className, children }: FadeInProps) => (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
