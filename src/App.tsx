@@ -3,13 +3,20 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 // import pages
 import NotFound from './pages/test/_NotFound.tsx'
 import Test from './pages/test/_Test.tsx'
-
 import About from './pages/About.tsx'
+
+// * clubroom pages
 import Clubroom from './pages/Clubroom/Clubroom.tsx'
+
+// * webgame pages
 import WebGames from './pages/games/WebGames.tsx'
 import GamesMBTI from './pages/games/mbti/mbti.tsx'
 import GamesSightread from './pages/games/sightread/sightread.tsx'
 import GamesSightreadGame from './pages/games/sightread/sightread-game.tsx'
+
+// * concert pages
+import Concert35 from './pages/concert/35.tsx'
+
 
 // main App component (routing 담당)
 export default function App() {
@@ -25,6 +32,8 @@ export default function App() {
         <Route path="/webgames/mbti" element={<GamesMBTI />} />
         <Route path="/webgames/sightread" element={<GamesSightread />} />
         <Route path="/webgames/sightread/game" element={<GamesSightreadGame />} />
+
+        <Route path="/concert/35" element={<Concert35 />} />
 
         {/* 추가 예정 */}
       </Routes>

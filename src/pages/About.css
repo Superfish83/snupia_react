@@ -1,3 +1,75 @@
+h1 {
+    width: fit-content;
+    margin-right: auto;
+}
+
+/* h2 {
+    width: fit-content;
+    margin-right: auto;
+} */
+
+p {
+    width: fit-content;
+    text-align: left;
+}
+
+b {
+    font-weight: 1000;
+    color: darkslateblue;
+}
+
+
+
+.alertbox {
+    border: 2px solid darkred;
+    border-radius: 10px;
+    background-color: #fff0f0;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 4px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.alertbox b {
+    color: darkred;
+}
+.alertbox svg {
+    font-size: 1.8em;
+    color: darkred;
+}
+
+
+
+.linkbox{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.linkbutton {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    padding: 10px;
+
+    text-decoration: none;
+    font-weight: 800;
+    color: white;
+    background-color: darkslateblue;
+}
+.linkbutton svg {
+    margin-right: 6px;
+    font-size: 1.2em;
+}
+.linkbutton:hover {
+    background-color: slateblue;
+}
+
+
+
 .imgbox {
     display: flex;
     flex-wrap: wrap;

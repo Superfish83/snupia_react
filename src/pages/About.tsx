@@ -20,7 +20,7 @@ export default function About() {
   // );
   
   return (
-    <>
+    <div style={{padding: 30}}>
       <h1><GiMusicalScore /> 동아리 소개 </h1>
       
       <p>
@@ -138,6 +138,6 @@ export default function About() {
       </div>
       <br/>
 
-    </>
+    </div>
   )
 }
