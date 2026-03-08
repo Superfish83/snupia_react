@@ -6,7 +6,7 @@ import Test from './pages/test/_Test.tsx'
 import About from './pages/About.tsx'
 
 // * clubroom pages
-import Clubroom from './pages/Clubroom/Clubroom.tsx'
+// import Clubroom from './pages/Clubroom/Clubroom.tsx'
 
 // * webgame pages
 import WebGames from './pages/games/WebGames.tsx'
@@ -27,7 +27,7 @@ export default function App() {
         <Route path="*"         element={<NotFound />} />
 
         <Route path="/about"    element={<About />} />
-        <Route path="/clubroom" element={<Clubroom />} />
+        {/* <Route path="/clubroom" element={<Clubroom />} /> */}
         <Route path="/webgames" element={<WebGames />} />
         <Route path="/webgames/mbti" element={<GamesMBTI />} />
         <Route path="/webgames/sightread" element={<GamesSightread />} />
