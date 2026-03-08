@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+  font-family: fontE;
+  src: url(./Eulyoo1945-Regular.otf) format("opentype");
+  font-display: swap;
+}
+
+.concert-title {
+  font-family: "Montserrat";
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+}
+
+
+.leftpow {
+  font-size: 4rem;
+}
+
+.pow {
+  width: fit-content;
+  font-size: 1.5rem;
+}
+
+.lowpow {
+  width: fit-content;
+  font-size: 1.5rem;
+}
+
+
+.concert-wrapper {
+  min-height: 100vh;
+  padding: 24px;
+  color: black;
+  background: linear-gradient(to top right,#3d5597, #e0ac4c);
+  font-family: 'Noto Sans KR', serif;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .content-container { width: 66.666667%; }
+}
+@media (min-width: 1024px) {
+  .content-container { width: 50%; }
+}
+
+.text-center h2 { text-align: center; font-size: inherit; margin: 0; }
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.underline { text-decoration: underline; }
+.keep-all { word-break: keep-all; }
+.mx-1 { margin-left: 0.25rem; margin-right: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.flex-center {
+  margin: 0 auto;
+}
+
+.gap-2 { gap: 8px; }
+
+.main-header {
+  text-align: center;
+  margin-top: 32px;
+  color: #000;
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: fontE, serif;
+}
+
+
+.section-subtitle {
+  color: #000;
+  border-bottom: 2px solid #000;
+  font-weight: 700;
+  font-family: fontE, serif;
+}
+
+/* --- 정보 및 지도 버튼 --- */
+.info-section {
+  text-align: center;
+  font-size: 1.125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.location-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.map-button {
+  border-radius: 8px;
+  padding: 8px;
+  background-color: #debb7e;
+  transition: all 0.3s ease;
+  color: inherit;
+}
+.map-button:hover {
+  background-color: #eacc99;
+  animation: none;
+}
+
+/* --- Piece 카드 디자인 --- */
+.program-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+}
+
+.piece-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.piece-card {
+  padding: 16px;
+  margin: 8px 0;
+  border-radius: 8px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 2px solid #fff;
+  background-color: #ecdba7;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: fontE;
+}
+
+.piece-card:hover {
+  background-color: #d6c798;
+}
+
+
+.piece-title {
+  font-size: 1.125rem;
+}
+
+.piece-movement {
+  font-size: 0.875rem;
+}
+
+.piece-details {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail-title {
+  font-weight: 700;
+  text-align: center;
+  color: #441919;
+}
+
+/* --- 하단 Footer --- */
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-section {
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  gap: 8px;
+  margin: 0 auto;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: inherit;
+  margin-right: auto;
+}
+
+/* --- 애니메이션 --- */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+.pulse-animation {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.pulse-animation:hover {
+  animation: none;
+}
+
+/* --- Scroll Progress Bar --- */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px; /* 프로그레스 바 두께 */
+  background-color: #441919; /* 테마에 맞춘 짙은 갈색 */
+  transform-origin: 0%; /* 왼쪽에서부터 차오르도록 설정 */
+  z-index: 100; /* 다른 요소들보다 항상 위에 보이도록 설정 */
+}
