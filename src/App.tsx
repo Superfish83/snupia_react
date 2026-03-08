@@ -10,6 +10,8 @@ import Posters from './pages/Posters.tsx'
 import WebGames from './pages/WebGames.tsx'
 import GamesMBTI from './pages/games/mbti.tsx'
 
+import Concert35 from './pages/concert/35.tsx'
+
 
 // main App component (routing 담당)
 export default function App() {
@@ -24,6 +26,8 @@ export default function App() {
         <Route path="/posters"  element={<Posters />} />
         <Route path="/webgames" element={<WebGames />} />
         <Route path="/webgames/mbti" element={<GamesMBTI />} />
+
+        <Route path="/concert/35" element={<Concert35 />} />
 
         {/* 추가 예정 */}
       </Routes>
