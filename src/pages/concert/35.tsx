@@ -47,8 +47,8 @@ export default function Concert35() {
               </span>
               <span style={{width: 30}}> </span>
               <span>
+                <div className="pow" style={{color:"white"}}>{"35th "}</div>
                 <div className="pow">
-                  <span style={{color:"white"}}>{"35th "}</span>
                   {"Piano"}
                 </div>
                 <div className="pow">{"Concert"}</div>
