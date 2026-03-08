@@ -33,7 +33,7 @@
   min-height: 100vh;
   padding: 24px;
   color: black;
-  background: linear-gradient(to top right,#3d5597, #e0ac4c);
+  background: linear-gradient(to top right,#9470b6, #e0ac4c);
   font-family: 'Noto Sans KR', serif;
 }
 
@@ -145,15 +145,15 @@
   margin: 8px 0;
   border-radius: 8px;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  border: 2px solid #fff;
-  background-color: #ecdba7;
+  border: 2px solid #575757;
+  background-color: #e3ddc8;
   transition: all 0.3s ease;
   cursor: pointer;
   font-family: fontE;
 }
 
 .piece-card:hover {
-  background-color: #d6c798;
+  background-color: #e0d6ba;
 }
 
 
@@ -175,7 +175,7 @@
 .detail-title {
   font-weight: 700;
   text-align: center;
-  color: #441919;
+  color: #150b0b;
 }
 
 /* --- 하단 Footer --- */

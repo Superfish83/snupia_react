@@ -81,7 +81,7 @@ export default function Piece({ data }: PieceProps) {
 
               <PieceFadeInDiv delay={0.4} className="flex-col gap-2">
                 {data.intro_piece?.map((text, key) => (
-                  <p style={{margin: 0}}>{`⠀${text}`}</p>
+                  <p style={{margin: 0}} key={key}>{`⠀${text}`}</p>
                 ))}
               </PieceFadeInDiv>
             </div>

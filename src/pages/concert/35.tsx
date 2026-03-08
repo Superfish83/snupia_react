@@ -1,5 +1,5 @@
 import { FaMapLocationDot } from "react-icons/fa6";
-import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { type ReactNode } from "react";
 
 import Piece, { type PieceData } from "./Piece";
@@ -114,6 +114,10 @@ export default function Concert35() {
 
         </div>
       </AnimatePresence>
+      <br/>
+      <div> 페이지 제작: 권성윤, 송이안, 김연준 </div>
+      <br/><br/><br/>
     </div>
+
   );
 }
