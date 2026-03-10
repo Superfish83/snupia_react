@@ -33,7 +33,7 @@
   min-height: 100vh;
   padding: 24px;
   color: black;
-  background: linear-gradient(to top right,#b89bb3, #f0c16b);
+  background: linear-gradient(to top right,#F0DEAB, #f0c16b);
   font-family: 'Noto Sans KR', serif;
 }
 
@@ -146,14 +146,14 @@
   border-radius: 8px;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   border: 2px solid #575757;
-  background-color: #e3ddc8;
+  background-color: #f8f5ec;
   transition: all 0.3s ease;
   cursor: pointer;
   font-family: fontE;
 }
 
 .piece-card:hover {
-  background-color: #e0d6ba;
+  background-color: #f6f0df;
 }
 
 
