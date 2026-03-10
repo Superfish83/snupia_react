@@ -120,6 +120,7 @@ export default function Concert35() {
       </AnimatePresence>
       <br/>
       <div> 페이지 제작: 권성윤, 송이안, 김연준 </div>
+      <div> 서울대학교 중앙 피아노 동아리 SNUPia </div>
       <br/><br/><br/>
     </div>
 
