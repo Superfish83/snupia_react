@@ -9,7 +9,7 @@ export default function Test() {
   
   return (
     <>
-      <div>
+      <div className="logos">
         <img src="/snupia_logo.webp" className="logo snupia" alt="SNUPia logo" />
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />

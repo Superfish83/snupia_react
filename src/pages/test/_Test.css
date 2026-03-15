@@ -1,3 +1,9 @@
+.logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
 .logo {
   height: 6em;
   padding: 1.5em;

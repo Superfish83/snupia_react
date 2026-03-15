@@ -138,7 +138,7 @@ export default function MBTISurvey() {
     const resultData = mbtiTypes[mbtiResult];
     
     return (
-      <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="flex items-center justify-center p-4">
         <div className="w-full max-w-lg bg-gray-900 rounded-lg shadow-lg p-8">
           <div className="text-center mb-6">
             <p className="text-gray-300">당신이 피아노 작곡가였다면...</p>
@@ -172,7 +172,7 @@ export default function MBTISurvey() {
   const imgurl = q.imgsrc
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="flex items-center justify-center p-4">
       <div className="w-full max-w-lg bg-gray-900 rounded-lg shadow-lg p-8">
         <div className="mb-6">
           <div className="flex justify-between items-center mb-4">

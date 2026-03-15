@@ -1,12 +1,20 @@
-h1 {
+/* h1 {
     width: fit-content;
     margin-right: auto;
-}
+} */
 
 /* h2 {
     width: fit-content;
     margin-right: auto;
 } */
+
+.title {
+    width: fit-content;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
 
 p {
     width: fit-content;
