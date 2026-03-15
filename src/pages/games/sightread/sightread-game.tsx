@@ -178,7 +178,7 @@ export default function GamesSightreadGame() {
         {quizList.length > 0 && (
           <Timer
             seconds={DEBUGMODE ? 3000 : 45}
-            barSize={800}
+            barSize={650}
             setGameStatus={setGameStatus}
           />
         )}

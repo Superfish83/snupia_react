@@ -8,7 +8,7 @@ export default function AnswerBoard({ setAnswer, lastCorrect, lastAnswer, keyHit
   lastAnswer: number;
   keyHitTime: number | null;}
 ) {
-  const boardW = 900;
+  const boardW = 860;
   const boardH = 180;
   const boardStyle = {
     width: `${boardW}px`,

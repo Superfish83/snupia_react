@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/static-components */
 export default function TutorialBoard({ gamestart, right, wrong }: {gamestart?: number, right?: number, wrong?: number}) {
-  const boardW = 900;
+  const boardW = 860;
   const boardH = 180;
   const boardStyle = {
     width: `${boardW}px`,
