@@ -1,0 +1,603 @@
+.absolute-pitch-game {
+  min-height: 100%;
+  padding-bottom: 60px;
+  color: #171717;
+}
+
+.difficulty-section {
+  width: min(720px, calc(100% - 32px));
+  margin: 36px auto 0;
+}
+
+.difficulty-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.difficulty-card {
+  min-height: 100px;
+  padding: 18px 12px;
+  border: 2px solid #e5e5e5;
+  border-radius: 14px;
+  background: white;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.difficulty-card:hover {
+  transform: translateY(-2px);
+  border-color: #a3a3a3;
+}
+
+.difficulty-card.selected {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+
+.difficulty-name {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.difficulty-description {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #737373;
+}
+
+.start-button,
+.retry-button {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px;
+
+  border: 0;
+  border-radius: 12px;
+
+  background: #22c55e;
+  color: white;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.start-button:hover,
+.retry-button:hover {
+  background: #16a34a;
+}
+
+/* Game status */
+
+.game-status {
+  margin: 36px auto 10px;
+  padding: 0 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  text-align: center;
+}
+
+.game-status strong {
+  font-size: 20px;
+}
+
+.game-status > span {
+  color: #525252;
+}
+
+.selection-guide {
+  font-size: 14px;
+  font-weight: 600;
+  color: #16a34a !important;
+}
+
+.replay-button {
+  margin-top: 6px;
+  padding: 8px 14px;
+
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+
+  background: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.replay-button:hover {
+  background: #f5f5f5;
+}
+
+/* Piano */
+
+.piano-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  margin-top: 25px;
+  padding: 0 16px;
+
+  overflow-x: auto;
+}
+
+.piano {
+  position: relative;
+  width: 560px;
+  min-width: 560px;
+  height: 250px;
+
+  border-radius: 8px;
+  transition: box-shadow 0.15s ease;
+}
+
+.piano-correct {
+  box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.25);
+}
+
+.piano-wrong {
+  box-shadow: 0 0 0 5px rgba(239, 68, 68, 0.25);
+}
+
+.white-keys {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.white-key {
+  position: relative;
+  flex: 1;
+  height: 100%;
+
+  border: 1px solid #a3a3a3;
+  border-top: 2px solid #737373;
+
+  background: white;
+
+  cursor: pointer;
+}
+
+.white-key:first-child {
+  border-radius: 7px 0 0 7px;
+}
+
+.white-key:last-child {
+  border-radius: 0 7px 7px 0;
+}
+
+.white-key:hover {
+  background: #f5f5f5;
+}
+
+.white-key:active,
+.white-key.active {
+  background: #dcfce7;
+}
+
+.white-key span {
+  position: absolute;
+
+  left: 50%;
+  bottom: 16px;
+
+  transform: translateX(-50%);
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: #404040;
+
+  user-select: none;
+}
+
+/* Black keys */
+
+.black-keys {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+}
+
+.black-key {
+  position: absolute;
+
+  top: 0;
+  width: 48px;
+  height: 155px;
+
+  border: none;
+  border-radius: 0 0 6px 6px;
+
+  background: #171717;
+  color: white;
+
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.35);
+
+  cursor: pointer;
+  pointer-events: auto;
+
+  z-index: 2;
+}
+
+.black-key:hover {
+  background: #262626;
+}
+
+.black-key:active,
+.black-key.active {
+  background: #16a34a;
+}
+
+.black-key span {
+  position: absolute;
+
+  left: 50%;
+  bottom: 12px;
+
+  transform: translateX(-50%);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  user-select: none;
+}
+
+/*
+  Piano width = 560px
+  One white key = 80px
+
+  C# = between C/D
+  D# = between D/E
+  F# = between F/G
+  G# = between G/A
+  A# = between A/B
+*/
+
+.black-1 {
+  left: 56px;
+}
+
+.black-3 {
+  left: 136px;
+}
+
+.black-6 {
+  left: 296px;
+}
+
+.black-8 {
+  left: 376px;
+}
+
+.black-10 {
+  left: 456px;
+}
+
+/* Feedback */
+
+.feedback-area {
+  height: 42px;
+
+  margin-top: 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 800;
+  font-size: 21px;
+}
+
+.correct-text {
+  color: #16a34a;
+}
+
+.wrong-text {
+  color: #dc2626;
+}
+
+/* Results */
+
+.result-section {
+  width: min(680px, calc(100% - 32px));
+  margin: 44px auto 0;
+
+  text-align: center;
+}
+
+.result-label {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.result-score {
+  margin: 8px 0;
+
+  font-size: 72px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.result-grade {
+  margin-top: 14px;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.history {
+  margin-top: 38px;
+}
+
+.history h2 {
+  margin-bottom: 12px;
+
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.history-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.history table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background: white;
+}
+
+.history th,
+.history td {
+  padding: 11px 8px;
+
+  border-bottom: 1px solid #e5e5e5;
+
+  font-size: 14px;
+}
+
+.history th {
+  background: #fafafa;
+  font-weight: 700;
+}
+
+.result-buttons {
+  margin-top: 24px;
+}
+
+.retry-button {
+  margin-top: 0;
+}
+
+.difficulty-button {
+  width: 100%;
+  margin-top: 9px;
+  padding: 13px;
+
+  border: 1px solid #d4d4d4;
+  border-radius: 12px;
+
+  background: white;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.difficulty-button:hover {
+  background: #f5f5f5;
+}
+
+/* Mobile */
+
+@media (max-width: 640px) {
+  .difficulty-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .piano {
+    width: 350px;
+    min-width: 350px;
+    height: 210px;
+  }
+
+  .black-key {
+    width: 32px;
+    height: 130px;
+  }
+
+  /* 350 / 7 = 50px per white key */
+
+  .black-1 {
+    left: 34px;
+  }
+
+  .black-3 {
+    left: 84px;
+  }
+
+  .black-6 {
+    left: 184px;
+  }
+
+  .black-8 {
+    left: 234px;
+  }
+
+  .black-10 {
+    left: 284px;
+  }
+
+  .white-key span {
+    font-size: 13px;
+    bottom: 13px;
+  }
+
+  .black-key span {
+    font-size: 10px;
+  }
+
+  .result-score {
+    font-size: 60px;
+  }
+}
+.instagram-share-button {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(
+    90deg,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #fd1d1d,
+    #f77737,
+    #fcaf45
+  );
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.instagram-share-button:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.share-modal-backdrop {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.share-modal {
+  position: relative;
+
+  width: min(420px, 100%);
+
+  padding: 32px 24px 24px;
+
+  border-radius: 20px;
+
+  background: white;
+
+  text-align: center;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.share-modal-close {
+  position: absolute;
+
+  top: 12px;
+  right: 16px;
+
+  border: none;
+  background: none;
+
+  font-size: 30px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  color: #525252;
+}
+
+.share-modal h2 {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.share-modal p {
+  margin-top: 10px;
+
+  color: #737373;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.share-qr {
+  width: fit-content;
+
+  margin: 24px auto 16px;
+  padding: 16px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+
+  background: white;
+}
+
+.share-score {
+  margin-top: 6px;
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.share-copy-button {
+  width: 100%;
+
+  margin-top: 20px;
+  padding: 13px;
+
+  border: 1px solid #d4d4d4;
+  border-radius: 12px;
+
+  background: white;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.share-copy-button:hover {
+  background: #f5f5f5;
+}
