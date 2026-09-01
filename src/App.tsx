@@ -13,6 +13,8 @@ import WebGames from './pages/games/WebGames.tsx'
 import GamesMBTI from './pages/games/mbti/mbti.tsx'
 import GamesSightread from './pages/games/sightread/sightread.tsx'
 import GamesSightreadGame from './pages/games/sightread/sightread-game.tsx'
+import GamesAbsolutePitch from "./pages/games/pitch/pitch.tsx";
+import WebGameShare from './pages/games/WebGameShare.tsx'
 
 // * concert pages
 import Concert35 from './pages/concert/35.tsx'
@@ -32,8 +34,10 @@ export default function App() {
         <Route path="/webgames/mbti" element={<GamesMBTI />} />
         <Route path="/webgames/sightread" element={<GamesSightread />} />
         <Route path="/webgames/sightread/game" element={<GamesSightreadGame />} />
-
+        <Route path="/webgames/pitch" element={<GamesAbsolutePitch />} />
         <Route path="/concert/35" element={<Concert35 />} />
+
+        <Route path="/webgames/share" element={<WebGameShare />} />
 
         {/* 추가 예정 */}
       </Routes>
